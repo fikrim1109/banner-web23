@@ -9,7 +9,7 @@ export default function Home() {
   const [Dor, setDor] = useState(0)
   const [nama, setNama] = useState('Fikri Natadiwirya Maulana')
 
-  function handlerTambahBravo(){
+  function handlerTambahDor(){
     setDor(Dor + 1)
   }
 
@@ -45,7 +45,7 @@ export default function Home() {
         </div>
         <div className="cta-banner-wrapper">
           {/* Tombol CTA */}
-            <div className='cta-button' onClick={handlerTambahBravo}>
+            <div className='cta-button' onClick={handlerTambahDor}>
               <p>Tambah Trofi </p>
             </div>
             <div className='cta-button' 
