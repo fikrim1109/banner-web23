@@ -25,7 +25,7 @@ export default function Home() {
           <div className="profile-header-banner">
             {/* Foto Profil*/}
             <Image
-              src="/assets/fotomessi.png"
+              src="/Assets/fotomessi.png"
               alt="Picture of the author"
               fill
               objectFit="contain"
