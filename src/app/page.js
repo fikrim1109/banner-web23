@@ -44,7 +44,10 @@ export default function Home() {
         <div className="cta-banner-wrapper">
           {/* Tombol CTA */}
           <div>
-            <input type="text" value={newNama} onChange={handleInputChange} />
+            <input type="text"
+              placeholder="Masukkan Nama Baru"
+             value={newNama} 
+             onChange={handleInputChange} />
           </div>
           <div
             className="cta-button"
