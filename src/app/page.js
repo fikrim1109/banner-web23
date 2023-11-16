@@ -1,8 +1,7 @@
 "use client";
-
 import { useState } from "react";
 import Image from "next/image";
-import "./globals.css";
+import "@styles/home.css";
 
 export default function Home() {
   const [nama, setNama] = useState("Fikri Natadiwirya Maulana");

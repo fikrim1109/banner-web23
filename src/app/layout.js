@@ -1,13 +1,23 @@
+import Navbar from "@app/components/navbar/navbar";
+import "@/styles/global.css"
+import "@app/components/navbar/navbar.css"
+import "@app/diary/diary.css"
+
 
 export const metadata = {
-  title: 'Fikri Natadiwirya Maulana',
-  description: 'Made for PMW 2023',
+  title: 'Name Card',
+  description: '',
 }
 
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body>{children}</body>
+      <body>
+      <Navbar>
+
+      </Navbar>
+      {children}
+      </body>
     </html>
   )
 }
