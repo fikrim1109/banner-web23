@@ -5,8 +5,8 @@ import "@app/diary/diary.css"
 
 
 export const metadata = {
-  title: 'Name Card',
-  description: '',
+  title: 'Pemrog web 2023',
+  description: 'Fikri Banner',
 }
 
 export default function RootLayout({ children }) {
