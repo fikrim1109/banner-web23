@@ -6,6 +6,7 @@ import "@styles/home.css";
 export default function Home() {
   const [nama, setNama] = useState("Fikri Natadiwirya Maulana");
   const [newNama, setNewNama] = useState("");
+  const [isDisabled, setIsDisabled] = useState(true); // State for button disabled
 
   function handlerGantiNama() {
     setNama(newNama);
@@ -13,6 +14,11 @@ export default function Home() {
 
   function handleInputChange(event) {
     setNewNama(event.target.value);
+    setIsDisabled(event.target.value === ""); // Enable button if input value is not empty
+  }
+
+  function handlerTambahNama() {
+    // Add your logic here for handling the submit button
   }
 
   return (
@@ -43,19 +49,22 @@ export default function Home() {
         <div className="cta-banner-wrapper">
           {/* Tombol CTA */}
           <div>
-            <input type="text"
+            <input
+              type="text"
               placeholder="Masukkan Nama Baru"
-             value={newNama} 
-             onChange={handleInputChange} />
+              value={newNama}
+              onChange={handleInputChange}
+            />
           </div>
           <div
-            className="cta-button"
+            className={`cta-button ${isDisabled ? 'disabled' : 'active'}`}
             style={{
               marginTop: "12px",
             }}
-            onClick={handlerGantiNama}
+            onClick={isDisabled ? null : handlerGantiNama}
+            disabled={isDisabled} // Disable button if input value is empty
           >
-            <p>Ganti Nama</p>
+            <p>{isDisabled ? 'Disable' : 'Submit'}</p>
           </div>
         </div>
       </div>
