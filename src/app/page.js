@@ -64,7 +64,7 @@ export default function Home() {
             onClick={isDisabled ? null : handlerGantiNama}
             disabled={isDisabled} // Disable button if input value is empty
           >
-            <p>{isDisabled ? 'Disable' : 'Submit'}</p>
+            <p>{isDisabled ? 'Disable' : 'Ganti Nama'}</p>
           </div>
         </div>
       </div>
