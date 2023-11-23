@@ -57,14 +57,14 @@ export default function Home() {
             />
           </div>
           <div
-            className={`cta-button ${isDisabled ? 'disabled' : 'active'}`}
+            className={`cta-button ${isDisabled ? "disabled" : "active"}`}
             style={{
               marginTop: "12px",
             }}
             onClick={isDisabled ? null : handlerGantiNama}
             disabled={isDisabled} // Disable button if input value is empty
           >
-            <p>{isDisabled ? 'Disable' : 'Submit'}</p>
+            <p>{isDisabled ? "Disable" : "Submit"}</p>
           </div>
         </div>
       </div>
