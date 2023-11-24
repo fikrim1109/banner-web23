@@ -6,7 +6,6 @@ import "@styles/home.css";
 export default function Home() {
   const [nama, setNama] = useState("Fikri Natadiwirya Maulana");
   const [newNama, setNewNama] = useState("");
-  const [isDisabled, setIsDisabled] = useState(true); // State for button disabled
 
   function handlerGantiNama() {
     setNama(newNama);
@@ -16,9 +15,13 @@ export default function Home() {
     setNewNama(event.target.value);
     setIsDisabled(event.target.value === ""); // Enable button if input value is not empty
   }
-
-  function handlerTambahNama() {
-    // Add your logic here for handling the submit button
+  
+  function handlerKeyEnter(e) {
+    e.preventDefault
+    if (e.key === 'Enter') {
+      setNama(e.target.value)
+      setNewNama(nama);
+    }
   }
 
   return (
@@ -48,24 +51,18 @@ export default function Home() {
         </div>
         <div className="cta-banner-wrapper">
           {/* Tombol CTA */}
-          <div>
-            <input
-              type="text"
-              placeholder="Masukkan Nama Baru"
-              value={newNama}
-              onChange={handleInputChange}
-            />
-          </div>
-          <div
-            className={`cta-button ${isDisabled ? "disabled" : "active"}`}
-            style={{
-              marginTop: "12px",
-            }}
-            onClick={isDisabled ? null : handlerGantiNama}
-            disabled={isDisabled} // Disable button if input value is empty
-          >
-            <p>{isDisabled ? 'Disable' : 'Ganti Nama'}</p>
-          </div>
+          <input
+            name="input-nama"
+            type="text"
+            placeholder="Tuliskan namamu.."
+            onChange={handlerInputChange}
+            onKeyDown={handlerKeyEnter}
+          />
+          {isSimpan ? (<div className="cta-button" onClick={handlerSubmit}>
+            <p>Submit Nama</p>
+          </div>) : (<div className="cta-button disabled" onClick={()=>alert('Isi terlebih dahulu!')}>
+            <p>Disabled</p>
+          </div>)}
         </div>
       </div>
     </div>

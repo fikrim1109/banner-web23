@@ -7,7 +7,43 @@ export default function Diary() {
   const [judul, setJudul] = useState([]);
   const [isiDiary, setIsiDiary] = useState([]);
 
+  // post
+
+  const [newNama, setNewNama] = useState("");
+  const [isDisabled, setIsDisabled] = useState(true); // State for button disabled
+
+  function handlerGantiNama() {
+    setNama(newNama);
+  }
+
+  function handleInputChange(event) {
+    setNewNama(event.target.value);
+    setIsDisabled(event.target.value === ""); // Enable button if input value is not empty
+  }
+
   const endpointAPI = "https://6555c10084b36e3a431e3f78.mockapi.io/diaryku";
+
+  <div className="cta-banner-wrapper">
+  {/* Tombol CTA */}
+  <div>
+    <input
+      type="text"
+      placeholder="Masukkan Nama Baru"
+      value={newNama}
+      onChange={handleInputChange}
+    />
+  </div>
+  <div
+    className={`cta-button ${isDisabled ? "disabled" : "active"}`}
+    style={{
+      marginTop: "12px",
+    }}
+    onClick={isDisabled ? null : handlerGantiNama}
+    disabled={isDisabled} // Disable button if input value is empty
+  >
+    <p>{isDisabled ? 'Disable' : 'Ganti Nama'}</p>
+  </div>
+</div>
 
   async function getDiary() {
     const res = await axios.get(endpointAPI);
